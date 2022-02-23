@@ -22,6 +22,8 @@ git branch
 # tmp=$(date +%s)
 # tmp_branch="gh-page-${tmp}"
 
+echo "test"
+
 mike deploy $currentVersion
 
 # mv $currentVersion "/tmp/${currentVersion}"

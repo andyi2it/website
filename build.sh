@@ -22,7 +22,7 @@ git branch
 # tmp=$(date +%s)
 # tmp_branch="gh-page-${tmp}"
 
-echo "test"
+echo "test pr"
 
 mike deploy $currentVersion
 

@@ -11,7 +11,7 @@ In this example, we use a trained paddle resnet50 model to classify images by ru
     spec:
       predictor:
         paddle:
-          storageUri: "https://zhouti-mcp-edge.cdn.bcebos.com/resnet50.tar.gz"
+          storageUri: "gs://kfserving-examples/models/paddle/resnet"
     ```
 === "New Schema"
     ```yaml
@@ -24,7 +24,7 @@ In this example, we use a trained paddle resnet50 model to classify images by ru
         model:
           modelFormat:
             name: paddle
-          storageUri: "https://zhouti-mcp-edge.cdn.bcebos.com/resnet50.tar.gz"
+          storageUri: "gs://kfserving-examples/models/paddle/resnet"
     ```
 Apply the above yaml to create the InferenceService
 ```bash

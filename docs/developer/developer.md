@@ -190,6 +190,119 @@ make deploy-dev-storageInitializer
     The built image is only for development and testing purpose, the current limitation is that it changes the image impacted and reset all other images including the
     `kserver-controller-manager` to use the default ones. 
 
+## Dependency Management with Poetry
+
+Kserve uses the [Poetry](https://python-poetry.org/) dependency management tool that simplifies the process of handling project dependencies, packaging, and distribution.
+
+### Why Poetry?
+
+* It allows you to declare the dependencies for your project needs in a file called pyproject.toml.
+* Poetry will then install and manage those dependencies for you.
+* Poetry also makes it easy to build, package, and publish your project on PyPI.
+* It ensures more stable dependency management as it has a lock file.
+* Built-in virtual environment supports
+* Integrate with lint/format/unittest tolls, such as pytest, black, isort, and others.
+* More easier to add custom build scripts.
+* More easier to link local packages as dependencies.
+
+### Prerequisites
+
+Before you begin, ensure that you have the following prerequisites installed on your system:
+
+- Python (3.6 or higher)
+- Poetry (you can install it using pip: `pip install poetry`)
+- Verify poetry version using : `poetry --version`
+
+### Getting Started
+
+#### 1. Initialising a New Project
+
+If you're starting a new project, you can create a new python project and set up poetry by running the following commands:
+
+```bash
+# Create a new directory for your project.
+mkdir my_project
+cd my_project
+
+# Initialise a new Python project with Poetry
+poetry init
+```
+#### 2. Adding Dependencies
+To add dependencies to your project, you can use the poetry add command. For example, to add the requests library
+```bash
+poetry add requests
+```
+
+This will update your project's pyproject.toml file with the new dependency and create a poetry.lock file to lock the dependency versions.
+
+#### 3. Installing Dependencies
+To install the dependencies listed in your pyproject.toml file, simply run:
+```bash
+poetry install
+```
+Poetry will fetch and install the specified dependencies in a virtual environment.
+
+**_NOTE:_** You can manually configure the virtual environment creation path. [Poetry config](https://python-poetry.org/docs/configuration/)
+
+#### 4. Updating Dependencies
+To update your project's dependencies to their latest compatible versions, use the following command:
+```bash
+poetry update
+```
+This will update the pyproject.toml and poetry.lock files accordingly.
+
+#### 5. Poetry.lock
+
+* It is used to lock down and record the exact versions of the dependencies that are currently installed in your project.
+* This ensures that every time you or someone else installs the project's dependencies, you get the same versions, promoting consistency and predictability in your project's environment.
+* It is not recommended to manually edit the poetry lock file (poetry.lock).
+
+### Dependency Management in Kserve's Poetry Projects
+
+Kserve offers support for various model and explainer formats, facilitating easy deployment and serving. We currently manage the project's dependencies using Poetry, and in the following section, we will demonstrate how to effectively manage these dependencies."
+
+Go to the sklearn server project.
+
+```bash
+cd python/sklearnserver
+```
+You can see the **pyproject.toml** and **poetry.lock** files under the current folder. It has all the dependencies for the project.
+
+#### 1. Adding Dependencies
+
+For example, to add **requests** dependency in the project. Run the below command.
+
+```bash
+poetry add requests
+```
+It will automatically update the **pyproject.toml** and **poetry.lock**
+
+#### 2. Installing Dependencies
+To install the dependencies listed in your pyproject.toml file, simply run:
+
+```bash
+poetry install
+```
+Poetry will fetch and install the specified dependencies in a virtual environment.
+
+#### 3. Installing Dependencies with Test Dependencies
+To install the dependencies with test dependencies
+
+```bash
+poetry install --with test
+```
+OR you can use the below make command which we included in the project's makefile to simplify the process.
+
+```bash
+make dev_install
+```
+
+### Kserve Project Version Management
+
+* For consistent project versioning in kserve, the project utilizes a Poetry plugin that ensures dynamic versioning based on the version from **VERSION** file."
+* VERSION file and Plugin package located under `python` folder in **Kserve**.
+* When executing a Poetry command within the kserve Poetry project, this plugin should automatically retrieve the version information from the **VERSION** file and then update the version in the **pyproject.toml** file
+
 ### Smoke test after deployment
 
 Run the following command to smoke test the deployment
@@ -279,4 +392,5 @@ See the guidelines for
 ## Feedback 
 
 The best place to provide feedback about the KServe code is via a Github issue. See [creating a Github issue](https://github.com/kserve/community/blob/main/CONTRIBUTING.md#issues) for guidelines on submitting bugs and feature requests.
+
 

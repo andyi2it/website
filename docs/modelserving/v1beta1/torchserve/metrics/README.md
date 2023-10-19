@@ -70,7 +70,7 @@ The first step is to [determine the ingress IP and ports](../../../../get_starte
 MODEL_NAME=mnist
 SERVICE_HOSTNAME=$(kubectl get inferenceservice torch-metrics <namespace> -o jsonpath='{.status.url}' | cut -d "/" -f 3)
 
-curl -v -H "Host: ${SERVICE_HOSTNAME}" http://${INGRESS_HOST}:${INGRESS_PORT}/v1/models/${MODEL_NAME}:predict -d @./mnist.json
+curl -v -H "Host: ${SERVICE_HOSTNAME}" -H "Content-Type: application/json" http://${INGRESS_HOST}:${INGRESS_PORT}/v1/models/${MODEL_NAME}:predict -d @./mnist.json
 ```
 
 !!! success "Expected Output"

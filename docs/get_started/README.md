@@ -14,26 +14,28 @@ You can use [`kind`](https://kind.sigs.k8s.io/docs/user/quick-start){target=_bla
 The [Kubernetes CLI (`kubectl`)](https://kubernetes.io/docs/tasks/tools/install-kubectl){target=_blank}, allows you to run commands against Kubernetes clusters. You can use `kubectl` to deploy applications, inspect and manage cluster resources, and view logs.
 
 
-## Install the KServe "Quickstart" environment
-1. After having kind installed, create a `kind` cluster with:
+## Install the KServe "Quickstart" Environment
+
+1. After installing Kind, create a `kind` cluster by running:
 
     ```bash
     kind create cluster
     ```
-2. Then run:
 
-   ```bash
-   kubectl config get-contexts
-   ```
-   It should list out a list of contexts you have, one of them should be `kind-kind`. Then run:
+2. Use the following command to list available contexts:
 
-   ```bash
-   kubectl config use-context kind-kind
-   ```
-   to use this context
-3. You can then get started with a local deployment of KServe by using _KServe Quick installation script on Kind_:
+    ```bash
+    kubectl config get-contexts
+    ```
+
+    This command will display a list of contexts, and one of them should be named `kind-kind`. Switch to this context by running:
+
+    ```bash
+    kubectl config use-context kind-kind
+    ```
+
+3. Start a local deployment of KServe using the _KServe Quick installation script on Kind_:
 
     ```bash
     curl -s "https://raw.githubusercontent.com/kserve/kserve/release-0.11/hack/quick_install.sh" | bash
     ```
-

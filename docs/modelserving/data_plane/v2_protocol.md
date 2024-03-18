@@ -26,7 +26,7 @@ See also: The HTTP/REST endpoints are defined in [rest_predict_v2.yaml](https://
 | Inference | POST | v2/models/<model_name>[/versions/\<model_version\>]/infer | [$inference_request](#inference-request-json-object) | [$inference_response](#inference-response-json-object) |
 | Model Metadata | GET | v2/models/\<model_name\>[/versions/\<model_version\>] | | [$metadata_model_response](#model-metadata-response-json-object) | 
 | Server Ready | GET | v2/health/ready | | [$ready_server_response](#server-ready-response-json-object) | 
-| Server Live | GET | v2/health/live | | [$live_server_response](#server-live-response-json-objet)| 
+| Server Live | GET | v2/health/live | | [$live_server_response](#server-live-response-json-object)| 
 | Server Metadata | GET | v2 | | [$metadata_server_response](#server-metadata-response-json-object) |
 | Model Ready| GET   | v2/models/\<model_name\>[/versions/<model_version>]/ready |  | [$ready_model_response](#model-ready-response-json-object) |
 
@@ -34,7 +34,7 @@ See also: The HTTP/REST endpoints are defined in [rest_predict_v2.yaml](https://
 
 For more information regarding payload contents, see `Payload Contents`.
 
-The versions portion of the `Path` URLs (in `[]`) is shown as **optional** to allow implementations that don’t support versioning or for cases when the user does not want to specify a specific model version (in which case the server will choose a version based on its own policies).
+The versions portion of the `Path` URLs (in `[]`) is shown as **optional** to allow implementations that don't support versioning or for cases when the user does not want to specify a specific model version (in which case the server will choose a version based on its own policies).
 For example, if a model does not implement a version, the Model Metadata request path could look like `v2/model/my_model`. If the model has been configured to implement a version, the request path could look something like `v2/models/my_model/versions/v10`, where the version of the model is v10.
 
 <!-- // TODO: add example with -d inputs. -->
@@ -90,7 +90,7 @@ The server ready endpoint returns the readiness probe response for the server.
 
 The server live endpoint returns the liveness probe response for the server.
 
-#### Server Live Response JSON Objet
+#### Server Live Response JSON object
 
     $live_server_response =
     {
@@ -175,8 +175,8 @@ successful model metadata request.
 
 * “name” : The name of the model.
 * "versions" : The model versions that may be explicitly requested via
-  the appropriate endpoint. Optional for servers that don’t support
-  versions. Optional for models that don’t allow a version to be
+  the appropriate endpoint. Optional for servers that don't support
+  versions. Optional for models that don't allow a version to be
   explicitly requested.
 * “platform” : The framework/backend for the model. See
   [Platforms](#platforms).

@@ -785,7 +785,7 @@ for i in {1..10}; do curl -H "Host: ${SERVICE_HOSTNAME}" http://${INGRESS_HOST}:
     {"predictions": [2]}Handling connection for 8080
     ```
 
-You can notice that when the request hits the canary revision it fails, this is because that the new revision requires the v2 inference input [mnist_v2.json](./mnist_v2.json) which is a breaking change, in addition the traffic is randomly splitted between the two revisions according to the specified traffic percentage. In this case you should rollout the canary model with **0 canaryTrafficPercent** and use the **latest** tagged url to test the canary model before moving the full traffic to the new model.
+You can notice that when the request hits the canary revision it fails, this is because that the new revision requires the v2 inference input [mnist_v2.json](./mnist_v2.json) which is a breaking change, in addition the traffic is randomly split between the two revisions according to the specified traffic percentage. In this case you should rollout the canary model with **0 canaryTrafficPercent** and use the **latest** tagged url to test the canary model before moving the full traffic to the new model.
 
 === "kubectl"
 ```bash

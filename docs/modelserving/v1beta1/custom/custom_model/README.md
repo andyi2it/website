@@ -353,7 +353,7 @@ Apply the yaml to deploy the InferenceService on KServe
 kubectl apply -f custom_grpc.yaml
 ```
 
-!!! successs "Expected Output"
+!!! success "Expected Output"
     ```{ .bash .no-copy }
     $ inferenceservice.serving.kserve.io/custom-model-grpc created
     ```

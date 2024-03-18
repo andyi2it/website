@@ -4,7 +4,7 @@ The `InferenceService` spec supports node selector, node affinity and toleration
 
 ### Option 1: Pre-Kubeflow Install Feature Flags Setup
 If we install KServe as part of Kubeflow manifest and would like to enable the feature flags before installing Kubeflow, we can do so by editing the file `manifests/common/knative/knative-serving/base/upstream/serving-core.yaml`   
-This is often a common approach that allows a reproducible configuration as the feature flags will be enabled everytime we install Kubeflow.  
+This is often a common approach that allows a reproducible configuration as the feature flags will be enabled every time we install Kubeflow.  
 
 
 1. Enable kubernetes.podspec-affinity  
@@ -176,7 +176,7 @@ You can learn more about dedicated node pools and ExtendedResourceToleration adm
 
 ### Node Selector + Tolerations
 As described in the [Overview](./overview.md#putting-it-all-together) we can combine node selector/node affinity and tolerations to force a pod to be scheduled on a node and to force a node to only accept pods with a matching toleration.
-Here is an exemple where we want our `transformer` to run on a node with the label `myLabel1=true`, we also want our `transformer` to tolerate nodes with the taint `myTaint1`. We want our predictor to run on a node with the label `myLabel2=true`, we also want our `predictor` to tolerate nodes with the taint `myTaint2`.
+Here is an example where we want our `transformer` to run on a node with the label `myLabel1=true`, we also want our `transformer` to tolerate nodes with the taint `myTaint1`. We want our predictor to run on a node with the label `myLabel2=true`, we also want our `predictor` to tolerate nodes with the taint `myTaint2`.
 ```yaml
 apiVersion: serving.kserve.io/v1beta1
 kind: InferenceService

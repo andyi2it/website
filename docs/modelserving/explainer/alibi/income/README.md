@@ -1,4 +1,4 @@
-# Example Anchors Tabular Explaination for Income Prediction
+# Example Anchors Tabular explanation for Income Prediction
 
 This example uses a [US income dataset](https://archive.ics.uci.edu/ml/datasets/adult) to show the example of explanation on tabular data.
 You can also try out the [Jupyter notebook](income_explanations.ipynb) for a visual walkthrough.

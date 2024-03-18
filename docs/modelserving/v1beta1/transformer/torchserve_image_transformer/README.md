@@ -156,7 +156,7 @@ In this example, the model repository contains a MNIST model, but you can store 
     ```
 
 !!! note
-    `STORAGE_URI` is a build-in environment variable used to inject the storage initializer for custom container just like `StorageURI` field for prepackaged predictors.
+    `STORAGE_URI` is a built-in environment variable used to inject the storage initializer for custom container just like `StorageURI` field for prepackaged predictors.
 The downloaded artifacts are stored under `/mnt/models`.
 
 

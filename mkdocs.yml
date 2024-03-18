@@ -164,6 +164,18 @@ copyright: "Copyright © 2021 The KServe Authors"
 
 plugins:
   - search
+  
+  - spellcheck:
+      backends:  # the backends you want to use
+      - codespell:
+          dictionaries: [clear, rare, code]
+      ignore_code: yes
+      allow_unicode: no
+      ignore_anchors: yes
+      min_length: 2
+      max_capital: 1
+      known_words: [jupyter]
+
   - mkdocstrings:
       default_handler: python
       handlers:

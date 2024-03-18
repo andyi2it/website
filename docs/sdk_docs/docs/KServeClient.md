@@ -126,7 +126,7 @@ kserve.create(isvc)
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-inferenceservice  | [V1beta1InferenceService](V1beta1InferenceService.md) | InferenceService defination| Required |
+inferenceservice  | [V1beta1InferenceService](V1beta1InferenceService.md) | InferenceService definition| Required |
 namespace | str | Namespace for InferenceService deploying to. If the `namespace` is not defined, will align with InferenceService definition, or use current or default namespace if namespace is not specified in InferenceService definition.  | Optional |
 watch | bool | Watch the created InferenceService if `True`, otherwise will return the created InferenceService object. Stop watching if InferenceService reaches the optional specified `timeout_seconds` or once the InferenceService overall status `READY` is `True`. | Optional |
 timeout_seconds | int | Timeout seconds for watching. Defaults to 600. | Optional |
@@ -168,7 +168,7 @@ Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 name  | str | InferenceService name. If the `name` is not specified, it will get or watch all InferenceServices in the namespace.| Optional. |
 namespace | str | The InferenceService's namespace. Defaults to current or default namespace.| Optional |
-watch | bool | Watch the specified InferenceService or all InferenceService in the namespace if `True`, otherwise will return object for the specified InferenceService or all InferenceService in the namespace. Stop watching if InferenceService reaches the optional specified `timeout_seconds` or once the speficed InferenceService overall status `READY` is `True` (Only if the `name` is speficed). | Optional |
+watch | bool | Watch the specified InferenceService or all InferenceService in the namespace if `True`, otherwise will return object for the specified InferenceService or all InferenceService in the namespace. Stop watching if InferenceService reaches the optional specified `timeout_seconds` or once the specified InferenceService overall status `READY` is `True` (Only if the `name` is specified). | Optional |
 timeout_seconds | int | Timeout seconds for watching. Defaults to 600. | Optional |
 
 ### Return type
@@ -227,7 +227,7 @@ kserve.patch(service_name, isvc)
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-inferenceservice  | [V1beta1InferenceService](V1beta1InferenceService.md) | InferenceService defination| Required |
+inferenceservice  | [V1beta1InferenceService](V1beta1InferenceService.md) | InferenceService definition| Required |
 namespace | str | The InferenceService's namespace for patching. If the `namespace` is not defined, will align with InferenceService definition, or use current or default namespace if namespace is not specified in InferenceService definition. | Optional|
 watch | bool | Watch the patched InferenceService if `True`, otherwise will return the patched InferenceService object. Stop watching if InferenceService reaches the optional specified `timeout_seconds` or once the InferenceService overall status `READY` is `True`. | Optional |
 timeout_seconds | int | Timeout seconds for watching. Defaults to 600. | Optional |
@@ -284,7 +284,7 @@ kserve.replace(service_name, isvc)
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-inferenceservice  | [V1beta1InferenceService](V1beta1InferenceService.md) | InferenceService defination| Required |
+inferenceservice  | [V1beta1InferenceService](V1beta1InferenceService.md) | InferenceService definition| Required |
 namespace | str | The InferenceService's namespace. If the `namespace` is not defined, will align with InferenceService definition, or use current or default namespace if namespace is not specified in InferenceService definition. | Optional|
 watch | bool | Watch the patched InferenceService if `True`, otherwise will return the replaced InferenceService object. Stop watching if InferenceService reaches the optional specified `timeout_seconds` or once the InferenceService overall status `READY` is `True`. | Optional |
 timeout_seconds | int | Timeout seconds for watching. Defaults to 600. | Optional |

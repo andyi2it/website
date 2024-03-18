@@ -17,7 +17,7 @@ Checkout KServe GitHub repository and Install via [poetry](https://python-poetry
 
 ```sh
 cd kserve/python/kserve
-peotry install
+poetry install
 ```
 
 ## KServe Serving Runtime API

@@ -57,7 +57,7 @@ Apply the CRD
 kubectl apply -f metrics.yaml
 ```
 
-!!! sucess "Expected Output"
+!!! success "Expected Output"
 
     ```{ .bash .no-copy }
     $ inferenceservice.serving.kserve.io/torch-metrics created

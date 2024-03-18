@@ -103,7 +103,7 @@ When listing terms and their definitions, use table formatting instead of defini
 
 ### Only use parentheses for acronym explanations
 
->Put an acronym inside parentheses after its explanation. Don’t use parentheses for anything else.
+>Put an acronym inside parentheses after its explanation. Don't use parentheses for anything else.
 
 >Parenthetical statements especially should be avoided because readers skip them.
 If something is important enough to be in the sentence, it should be fully part of that sentence.

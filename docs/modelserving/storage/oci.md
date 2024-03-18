@@ -94,9 +94,9 @@ This means the image would be re-downloaded every time a Pod restarts or scales 
 
 ## Example
 
-Let's see how modecars work by deploying the [getting started example](../../../../get_started/first_isvc/) by using an OCI image and check how it is different to the startup with a storage-initalizer init-container. 
+Let's see how modecars work by deploying the [getting started example](../../../../get_started/first_isvc/) by using an OCI image and check how it is different to the startup with a storage-initializer init-container. 
 
-Asuming you have setup a namespace `kserve-test` that is KServe enabled, create an `InferenceService` that uses an `oci://` storage URL:
+Assuming you have setup a namespace `kserve-test` that is KServe enabled, create an `InferenceService` that uses an `oci://` storage URL:
 
 ``` shell
 kubectl apply -n kserve-test -f - <<EOF

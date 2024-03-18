@@ -1,4 +1,4 @@
-# Example Anchors Text Explaination for Movie Sentiment
+# Example Anchors Text explanation for Movie Sentiment
 
 This example uses a [movie sentiment dataset](http://www.cs.cornell.edu/people/pabo/movie-review-data/) to show the explanation on text data, for a more visual walkthrough please try the [Jupyter notebook](movie_review_explanations.ipynb).
 
@@ -94,7 +94,7 @@ curl -v -H "Host: ${SERVICE_HOSTNAME}" -H "Content-Type: application/json" http:
         "exercise"
       ],
       "precision": 1,
-      "converage": 0.5005,
+      "coverage": 0.5005,
       "raw": {
         "feature": [
           9

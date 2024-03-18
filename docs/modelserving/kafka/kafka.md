@@ -10,8 +10,8 @@ If you do not have an existing kafka cluster, you can run the following commands
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install zookeeper bitnami/zookeeper --set replicaCount=1 --set auth.enabled=false --set allowAnonymousLogin=true \
-  --set persistance.enabled=false --version 11.0.0
-helm install kafka bitnami/kafka --set zookeeper.enabled=false --set replicaCount=1 --set persistance.enabled=false \
+  --set persistence.enabled=false --version 11.0.0
+helm install kafka bitnami/kafka --set zookeeper.enabled=false --set replicaCount=1 --set persistence.enabled=false \
   --set logPersistance.enabled=false --set externalZookeeper.servers=zookeeper-headless.default.svc.cluster.local \
   --version 21.0.0
 ```

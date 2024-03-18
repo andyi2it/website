@@ -5,7 +5,7 @@
 ## Install Material for MkDocs
 kserve.io uses [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) to render documentation. Material for MkDocs is Python based and uses pip to install most of it's required packages as well as optional add-ons (which we use).
 
-You can choose to install MkDocs locally or using a Docker image. pip actually comes pre-installed with Python so it is included in many operating systems (like MacOSx or Ubuntu) but if you don’t have Python, you can install it here: https://www.python.org
+You can choose to install MkDocs locally or using a Docker image. pip actually comes pre-installed with Python so it is included in many operating systems (like MacOSx or Ubuntu) but if you don't have Python, you can install it here: https://www.python.org
 
 For some (e.g. folks using RHEL), you may have to use pip3.
 
@@ -64,7 +64,7 @@ In your terminal, find your way over to the location of the cloned repo. Once yo
     ```
 
 === "Local Preview w/ Dirty Reload"
-    If you’re only changing a single page in the /docs/ folder (i.e. not the homepage or mkdocs.yml) adding the flag --dirtyreload will make the site rebuild super crazy insta-fast.
+    If you're only changing a single page in the /docs/ folder (i.e. not the homepage or mkdocs.yml) adding the flag --dirtyreload will make the site rebuild super crazy insta-fast.
     ```
     mkdocs serve --dirtyreload
     ```
@@ -78,7 +78,7 @@ In your terminal, find your way over to the location of the cloned repo. Once yo
     ./hack/build-with-blog.sh serve
     ```
     !!! note
-        Unfortunately, there aren’t live previews for this version of the local preview.
+        Unfortunately, there aren't live previews for this version of the local preview.
 
 
 

@@ -32,7 +32,7 @@
 <aside class="md-banner">
 <div class="md-banner__inner md-grid md-typeset">
 <h1>
-<b>KServe v0.13 is Released</b>, <a href="/website/0.13/blog/articles/2024-05-15-KServe-0.13-release/">Read blog &gt;&gt;</a>
+<b>KServe v0.14 is Released</b>, <a href="/website/0.14/blog/articles/2024-12-13-KServe-0.14-release/">Read blog &gt;&gt;</a>
 </h1>
 </div>
 </aside>
@@ -140,7 +140,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../blog/articles/2024-05-15-KServe-0.13-release/">
+<a class="md-tabs__link" href="../../../../blog/articles/2024-12-13-KServe-0.14-release/">
         Blog
       </a>
 </li>
@@ -357,6 +357,26 @@
 <a class="md-nav__link" href="../../../data_plane/v2_protocol/">
         Open Inference Protocol (V2 Inference Protocol)
       </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_2_4" id="__nav_4_1_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_2_4">
+          Open Inference Protocol Extensions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Open Inference Protocol Extensions" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_1_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Open Inference Protocol Extensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data_plane/binary_tensor_data_extension/">
+        Binary Tensor Data Extension
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -744,6 +764,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../certificate/kserve/">
+        Configure CA Certificate
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../storage/azure/azure/">
         Azure
       </a>
@@ -769,13 +794,18 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../certificate/kserve/">
-        CA Certificate
+<a class="md-nav__link" href="../../../storage/gcs/gcs/">
+        GCS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../storage/gcs/gcs/">
-        GCS
+<a class="md-nav__link" href="../../../storage/huggingface/hf/">
+        Hugging Face
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../storage/modelcache/localmodel/">
+        Model Cache
       </a>
 </li>
 </ul>
@@ -1061,6 +1091,11 @@
         Python Runtime Server SDK
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../inference_client/doc/">
+        Inference Python Client
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1114,6 +1149,11 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../blog/articles/2024-12-13-KServe-0.14-release/">
+        KServe 0.14 Release
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../blog/articles/2024-05-15-KServe-0.13-release/">
         KServe 0.13 Release
       </a>
@@ -1141,26 +1181,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../blog/articles/2021-10-11-KServe-0.7-release/">
         KServe 0.7 Release
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" id="__nav_7_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7_2">
-          Articles
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Articles" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_7_2">
-<span class="md-nav__icon md-icon"></span>
-          Articles
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../blog/articles/2021-09-27-kfserving-transition/">
-        KFserving Transition
       </a>
 </li>
 </ul>
@@ -1291,8 +1311,8 @@
 <li>The <code>predict</code> handler calls <code>Triton Inference Server</code> using PYTHON REST API  </li>
 <li>The <code>postprocess</code> handler converts raw prediction to the answer with the probability</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BertTransformer</span><span class="p">(</span><span class="n">kserve</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">predictor_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<p><div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BertTransformer</span><span class="p">(</span><span class="n">kserve</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">predictor_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">short_paragraph_text</span> <span class="o">=</span> <span class="s2">"The Apollo program was the third United States human spaceflight program. First conceived as a three-man spacecraft to follow the one-man Project Mercury which put the first Americans in space, Apollo was dedicated to President John F. Kennedy's national goal of landing a man on the Moon. The first manned flight of Apollo was in 1968. Apollo ran from 1961 to 1972 followed by the Apollo-Soyuz Test Project a joint Earth orbit mission with the Soviet Union in 1975."</span>
 
@@ -1301,12 +1321,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">=</span> <span class="s2">"bert_tf_v2_large_fp16_128_v2"</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">doc_tokens</span> <span class="o">=</span> <span class="n">data_processing</span><span class="o">.</span><span class="n">convert_doc_tokens</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">short_paragraph_text</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="n">data_processing</span><span class="o">.</span><span class="n">convert_examples_to_features</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doc_tokens</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">"instances"</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span>
 
-    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">httpclient</span><span class="o">.</span><span class="n">InferenceServerClient</span><span class="p">(</span>
                 <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">predictor_host</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1332,7 +1352,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_name</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">outputs</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">get_response</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
         <span class="n">end_logits</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'data'</span><span class="p">]</span>
         <span class="n">start_logits</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">'outputs'</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">'data'</span><span class="p">]</span>
         <span class="n">n_best_size</span> <span class="o">=</span> <span class="mi">20</span>

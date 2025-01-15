@@ -32,7 +32,7 @@
 <aside class="md-banner">
 <div class="md-banner__inner md-grid md-typeset">
 <h1>
-<b>KServe v0.13 is Released</b>, <a href="/website/0.13/blog/articles/2024-05-15-KServe-0.13-release/">Read blog &gt;&gt;</a>
+<b>KServe v0.14 is Released</b>, <a href="/website/0.14/blog/articles/2024-12-13-KServe-0.14-release/">Read blog &gt;&gt;</a>
 </h1>
 </div>
 </aside>
@@ -140,7 +140,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../blog/articles/2024-05-15-KServe-0.13-release/">
+<a class="md-tabs__link" href="../../../../../blog/articles/2024-12-13-KServe-0.14-release/">
         Blog
       </a>
 </li>
@@ -357,6 +357,26 @@
 <a class="md-nav__link" href="../../../../data_plane/v2_protocol/">
         Open Inference Protocol (V2 Inference Protocol)
       </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_2_4" id="__nav_4_1_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_2_4">
+          Open Inference Protocol Extensions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Open Inference Protocol Extensions" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_1_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Open Inference Protocol Extensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../data_plane/binary_tensor_data_extension/">
+        Binary Tensor Data Extension
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -720,6 +740,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../certificate/kserve/">
+        Configure CA Certificate
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../storage/azure/azure/">
         Azure
       </a>
@@ -745,13 +770,18 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../certificate/kserve/">
-        CA Certificate
+<a class="md-nav__link" href="../../../../storage/gcs/gcs/">
+        GCS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../storage/gcs/gcs/">
-        GCS
+<a class="md-nav__link" href="../../../../storage/huggingface/hf/">
+        Hugging Face
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../storage/modelcache/localmodel/">
+        Model Cache
       </a>
 </li>
 </ul>
@@ -1037,6 +1067,11 @@
         Python Runtime Server SDK
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../inference_client/doc/">
+        Inference Python Client
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1090,6 +1125,11 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../blog/articles/2024-12-13-KServe-0.14-release/">
+        KServe 0.14 Release
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../../blog/articles/2024-05-15-KServe-0.13-release/">
         KServe 0.13 Release
       </a>
@@ -1117,26 +1157,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../../blog/articles/2021-10-11-KServe-0.7-release/">
         KServe 0.7 Release
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" id="__nav_7_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7_2">
-          Articles
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Articles" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_7_2">
-<span class="md-nav__icon md-icon"></span>
-          Articles
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../blog/articles/2021-09-27-kfserving-transition/">
-        KFserving Transition
       </a>
 </li>
 </ul>
@@ -1288,11 +1308,14 @@ to find out your ingress IP and port.</p>
 curl<span class="w"> </span>-v<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s2">"Host: </span><span class="si">${</span><span class="nv">SERVICE_HOSTNAME</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span>@./text.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"instances": ["My dog is cute."]}'</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>http://<span class="si">${</span><span class="nv">INGRESS_HOST</span><span class="si">}</span>:<span class="si">${</span><span class="nv">INGRESS_PORT</span><span class="si">}</span>/v1/models/bloom7b1:predict
-
-<span class="o">{</span><span class="s2">"predictions"</span>:<span class="o">[</span><span class="s2">"My dog is cute.\nNice.\n- Hey, Mom.\n- Yeah?\nWhat color's your dog?\n- It's gray.\n- Gray?\nYeah.\nIt looks gray to me.\n- Where'd you get it?\n- Well, Dad says it's kind of...\n- Gray?\n- Gray.\nYou got a gray dog?\n- It's gray.\n- Gray.\nIs your dog gray?\nAre you sure?\nNo.\nYou sure"</span><span class="o">]}</span>
 </code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Expected Output</p>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"predictions"</span><span class="p">:[</span><span class="s2">"My dog is cute.\nNice.\n- Hey, Mom.\n- Yeah?\nWhat color's your dog?\n- It's gray.\n- Gray?\nYeah.\nIt looks gray to me.\n- Where'd you get it?\n- Well, Dad says it's kind of...\n- Gray?\n- Gray.\nYou got a gray dog?\n- It's gray.\n- Gray.\nIs your dog gray?\nAre you sure?\nNo.\nYou sure"</span><span class="p">]}</span>
+</code></pre></div>
+</div>
 </article>
 </div>
 </div>

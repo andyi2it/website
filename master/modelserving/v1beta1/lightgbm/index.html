@@ -32,7 +32,7 @@
 <aside class="md-banner">
 <div class="md-banner__inner md-grid md-typeset">
 <h1>
-<b>KServe v0.13 is Released</b>, <a href="/website/0.13/blog/articles/2024-05-15-KServe-0.13-release/">Read blog &gt;&gt;</a>
+<b>KServe v0.14 is Released</b>, <a href="/website/0.14/blog/articles/2024-12-13-KServe-0.14-release/">Read blog &gt;&gt;</a>
 </h1>
 </div>
 </aside>
@@ -140,7 +140,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../blog/articles/2024-05-15-KServe-0.13-release/">
+<a class="md-tabs__link" href="../../../blog/articles/2024-12-13-KServe-0.14-release/">
         Blog
       </a>
 </li>
@@ -357,6 +357,26 @@
 <a class="md-nav__link" href="../../data_plane/v2_protocol/">
         Open Inference Protocol (V2 Inference Protocol)
       </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_2_4" id="__nav_4_1_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_2_4">
+          Open Inference Protocol Extensions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Open Inference Protocol Extensions" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_1_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Open Inference Protocol Extensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data_plane/binary_tensor_data_extension/">
+        Binary Tensor Data Extension
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -790,6 +810,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../certificate/kserve/">
+        Configure CA Certificate
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../storage/azure/azure/">
         Azure
       </a>
@@ -815,13 +840,18 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../certificate/kserve/">
-        CA Certificate
+<a class="md-nav__link" href="../../storage/gcs/gcs/">
+        GCS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../storage/gcs/gcs/">
-        GCS
+<a class="md-nav__link" href="../../storage/huggingface/hf/">
+        Hugging Face
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../storage/modelcache/localmodel/">
+        Model Cache
       </a>
 </li>
 </ul>
@@ -1107,6 +1137,11 @@
         Python Runtime Server SDK
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../inference_client/doc/">
+        Inference Python Client
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1160,6 +1195,11 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../blog/articles/2024-12-13-KServe-0.14-release/">
+        KServe 0.14 Release
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../blog/articles/2024-05-15-KServe-0.13-release/">
         KServe 0.13 Release
       </a>
@@ -1187,26 +1227,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../blog/articles/2021-10-11-KServe-0.7-release/">
         KServe 0.7 Release
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" id="__nav_7_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7_2">
-          Articles
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Articles" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_7_2">
-<span class="md-nav__icon md-icon"></span>
-          Articles
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../blog/articles/2021-09-27-kfserving-transition/">
-        KFserving Transition
       </a>
 </li>
 </ul>
@@ -1357,9 +1377,9 @@
 <h1 id="deploy-lightgbm-model-with-inferenceservice">Deploy LightGBM model with InferenceService<a class="headerlink" href="#deploy-lightgbm-model-with-inferenceservice" title="Permanent link">¶</a></h1>
 <h2 id="train-a-lightgbm-model">Train a LightGBM model<a class="headerlink" href="#train-a-lightgbm-model" title="Permanent link">¶</a></h2>
 <p>To test the LightGBM Server, first you need to train a simple LightGBM model with following python code.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">lightgbm</span> <span class="k">as</span> <span class="nn">lgb</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">lightgbm</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lgb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">model_dir</span> <span class="o">=</span> <span class="s2">"."</span>
 <span class="n">BST_FILE</span> <span class="o">=</span> <span class="s2">"model.bst"</span>
@@ -1384,7 +1404,7 @@
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>lgbserver<span class="w"> </span>--model_dir<span class="w"> </span>/path/to/model_dir<span class="w"> </span>--model_name<span class="w"> </span>lgb
 </code></pre></div>
 <p>After the <code>LightGBM Server</code> is up locally we can then test the model by sending an inference request.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">request</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'sepal_width_(cm)'</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">},</span> <span class="s1">'petal_length_(cm)'</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">1.4</span><span class="p">},</span> <span class="s1">'petal_width_(cm)'</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">},</span><span class="s1">'sepal_length_(cm)'</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">5.1</span><span class="p">}</span> <span class="p">}</span>
 <span class="n">formData</span> <span class="o">=</span> <span class="p">{</span>

@@ -32,7 +32,7 @@
 <aside class="md-banner">
 <div class="md-banner__inner md-grid md-typeset">
 <h1>
-<b>KServe v0.13 is Released</b>, <a href="/website/0.13/blog/articles/2024-05-15-KServe-0.13-release/">Read blog &gt;&gt;</a>
+<b>KServe v0.14 is Released</b>, <a href="/website/0.14/blog/articles/2024-12-13-KServe-0.14-release/">Read blog &gt;&gt;</a>
 </h1>
 </div>
 </aside>
@@ -140,7 +140,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../blog/articles/2024-05-15-KServe-0.13-release/">
+<a class="md-tabs__link" href="../../../../blog/articles/2024-12-13-KServe-0.14-release/">
         Blog
       </a>
 </li>
@@ -357,6 +357,26 @@
 <a class="md-nav__link" href="../../../data_plane/v2_protocol/">
         Open Inference Protocol (V2 Inference Protocol)
       </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_2_4" id="__nav_4_1_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_2_4">
+          Open Inference Protocol Extensions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Open Inference Protocol Extensions" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_1_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Open Inference Protocol Extensions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../data_plane/binary_tensor_data_extension/">
+        Binary Tensor Data Extension
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -777,6 +797,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../certificate/kserve/">
+        Configure CA Certificate
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../storage/azure/azure/">
         Azure
       </a>
@@ -802,13 +827,18 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../certificate/kserve/">
-        CA Certificate
+<a class="md-nav__link" href="../../../storage/gcs/gcs/">
+        GCS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../storage/gcs/gcs/">
-        GCS
+<a class="md-nav__link" href="../../../storage/huggingface/hf/">
+        Hugging Face
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../storage/modelcache/localmodel/">
+        Model Cache
       </a>
 </li>
 </ul>
@@ -1094,6 +1124,11 @@
         Python Runtime Server SDK
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../inference_client/doc/">
+        Inference Python Client
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1147,6 +1182,11 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../blog/articles/2024-12-13-KServe-0.14-release/">
+        KServe 0.14 Release
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../blog/articles/2024-05-15-KServe-0.13-release/">
         KServe 0.13 Release
       </a>
@@ -1174,26 +1214,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../blog/articles/2021-10-11-KServe-0.7-release/">
         KServe 0.7 Release
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" id="__nav_7_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7_2">
-          Articles
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Articles" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_7_2">
-<span class="md-nav__icon md-icon"></span>
-          Articles
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../blog/articles/2021-09-27-kfserving-transition/">
-        KFserving Transition
       </a>
 </li>
 </ul>
@@ -1340,18 +1360,18 @@ By default transformer makes a REST call to predictor, to make a gRPC call to pr
 <p>To implement a <code>Transformer</code> you can derive from the base <code>Model</code> class and then overwrite the <code>preprocess</code> and <code>postprocess</code> handler to have your own customized transformation logic.
 For <code>Open(v2) Inference Protocol</code>, KServe provides <code>InferRequest</code> and <code>InferResponse</code> API object for <code>predict</code>, <code>preprocess</code>, <code>postprocess</code>
 handlers to abstract away the implementation details of REST/gRPC decoding and encoding over the wire.
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">from</span> <span class="nn">kserve</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">ModelServer</span><span class="p">,</span> <span class="n">model_server</span><span class="p">,</span> <span class="n">InferInput</span><span class="p">,</span> <span class="n">InferRequest</span><span class="p">,</span> <span class="n">logging</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">transforms</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">io</span>
-<span class="kn">import</span> <span class="nn">base64</span>
-<span class="kn">import</span> <span class="nn">kserve</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">kserve</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">ModelServer</span><span class="p">,</span> <span class="n">model_server</span><span class="p">,</span> <span class="n">InferInput</span><span class="p">,</span> <span class="n">InferRequest</span><span class="p">,</span> <span class="n">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision.transforms</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">transforms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kserve</span>
 
 
-<span class="k">def</span> <span class="nf">image_transform</span><span class="p">(</span><span class="n">byte_array</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">image_transform</span><span class="p">(</span><span class="n">byte_array</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""converts the input image of Bytes Array into Tensor</span>
 <span class="sd">    Args:</span>
 <span class="sd">        instance (dict): The request input for image bytes.</span>
@@ -1367,27 +1387,27 @@ handlers to abstract away the implementation details of REST/gRPC decoding and e
     <span class="k">return</span> <span class="n">tensor</span>
 
 <span class="c1"># for v1 REST predictor the preprocess handler converts to input image bytes to float tensor dict in v1 inference REST protocol format</span>
-<span class="k">class</span> <span class="nc">ImageTransformer</span><span class="p">(</span><span class="n">kserve</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">predictor_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ImageTransformer</span><span class="p">(</span><span class="n">kserve</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">predictor_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">predictor_host</span> <span class="o">=</span> <span class="n">predictor_host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">'instances'</span><span class="p">:</span> <span class="p">[</span><span class="n">image_transform</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">[</span><span class="s1">'instances'</span><span class="p">]]}</span>
 
-    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">inputs</span>
 
 <span class="c1"># for v2 gRPC predictor the preprocess handler converts the input image bytes tensor to float tensor in v2 inference protocol format</span>
-<span class="k">class</span> <span class="nc">ImageTransformer</span><span class="p">(</span><span class="n">kserve</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">predictor_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">protocol</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ImageTransformer</span><span class="p">(</span><span class="n">kserve</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">predictor_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">protocol</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">predictor_host</span> <span class="o">=</span> <span class="n">predictor_host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="n">protocol</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">InferRequest</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InferRequest</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">InferRequest</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InferRequest</span><span class="p">:</span>
         <span class="n">input_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">image_transform</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">]</span>
         <span class="n">input_tensors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">input_tensors</span><span class="p">)</span>
         <span class="n">infer_inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">InferInput</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"INPUT__0"</span><span class="p">,</span> <span class="n">datatype</span><span class="o">=</span><span class="s1">'FP32'</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">input_tensors</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>

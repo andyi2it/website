@@ -76,7 +76,7 @@ Skip this step if you're using a cloud provider (AWS, GCP, Azure) that provides 
 #### Cert Manager
 
 ```bash
-infra/manage.cert-manager.sh
+infra/manage.cert-manager-helm.sh
 ```
 :::note
 Cert Manager is required for webhook certificates and LeaderWorkerSet operator. It's essential for production-grade installation.
@@ -97,7 +97,7 @@ infra/gateway-api/manage.gateway-api-crd.sh
 The Gateway API provider for routing
 
 ```bash
-infra/manage.envoy-gateway.sh
+infra/manage.envoy-gateway-helm.sh
 ```
 
 #### Envoy AI Gateway
@@ -105,7 +105,7 @@ infra/manage.envoy-gateway.sh
 The Gateway API Extension provider(GIE) for routing
 
 ```bash
-infra/manage.envoy-ai-gateway.sh
+infra/manage.envoy-ai-gateway-helm.sh
 ```
 
 #### LeaderWorkerSet Operator

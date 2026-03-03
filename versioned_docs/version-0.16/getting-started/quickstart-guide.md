@@ -179,14 +179,14 @@ curl -s "https://raw.githubusercontent.com/kserve/kserve/master/hack/setup/quick
 2. ✅ External Load Balancer (MetalLB for local clusters)
 
 *LLMInferenceService Components:*
-3. ✅ Gateway API CRDs
-4. ✅ Gateway API Inference Extension
-5. ✅ Envoy Gateway
-6. ✅ Envoy AI Gateway
-7. ✅ LeaderWorkerSet (multi-node deployments)
-8. ✅ GatewayClass
-9. ✅ Gateway
-10. ✅ LLMInferenceService CRDs and Controller
+1. ✅ Gateway API CRDs
+2. ✅ Gateway API Inference Extension
+3. ✅ Envoy Gateway
+4. ✅ Envoy AI Gateway
+5. ✅ LeaderWorkerSet (multi-node deployments)
+6. ✅ GatewayClass
+7. ✅ Gateway
+8. ✅ LLMInferenceService CRDs and Controller
 
 :::success
 This installs only LLMInferenceService components. KServe (Standard) is not included.
